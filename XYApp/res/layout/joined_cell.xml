@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="#ffffff"
+        android:padding="5dp"
+        android:text="感谢您的阅读，如果文章中有错误或者您有什么好的建议，也欢迎您直接留言批评指教。" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:background="#ffffff"
+        android:padding="5dp"
+        android:text="CFDA批准文号:2015L0808\n患者姓名:张三丰\n报名时间:2015-08-06 10:03" />
+
+</LinearLayout>

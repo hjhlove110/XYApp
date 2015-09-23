@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/title" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
+        android:text="如果你没有找到适合的临床研究,\n点击下方加入心药,完成预报名。\n\n期待研究人员找到适合的会与您取得联系。" />
+
+    <Button
+        android:id="@+id/joinXY"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_bg_shape"
+        android:text="加入心药"
+        android:textColor="#ffffff" />
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/tabhost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@android:id/tabcontent"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.0" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/radio0"
+                style="@style/CheckBoxMain"
+                android:checked="true"
+                android:drawableTop="@drawable/menu1d"
+                android:text="精选心药" />
+
+            <RadioButton
+                android:id="@+id/radio1"
+                style="@style/CheckBoxMain"
+                android:drawableTop="@drawable/menu2d"
+                android:text="心药说明书" />
+
+            <RadioButton
+                android:id="@+id/radio2"
+                style="@style/CheckBoxMain"
+                android:drawableTop="@drawable/menu3d"
+                android:text="我的心药" />
+        </RadioGroup>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</TabHost>
