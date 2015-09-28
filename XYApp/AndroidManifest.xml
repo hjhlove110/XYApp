@@ -118,6 +118,14 @@
             android:name=".SeracheForResult"
             android:label="@string/title_activity_serache_for_result" >
         </activity>
+        <activity
+            android:name=".YanJiuView"
+            android:label="" >
+        </activity>
+        <activity
+            android:name=".MyCollectionView"
+            android:label="@string/title_activity_my_collection_view" >
+        </activity>
     </application>
 
 </manifest>
