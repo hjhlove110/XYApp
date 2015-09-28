@@ -1,0 +1,11 @@
+package com.sven.xinyao.modles;
+
+public class SMSCellModel {
+	public int id;
+	public int click;
+	public boolean is_good;
+	public String title;
+	public String image;
+	public String description;
+	public String detail_url;
+}

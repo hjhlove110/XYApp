@@ -5,6 +5,7 @@
     android:orientation="vertical" >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -13,6 +14,7 @@
         android:text="感谢您的阅读，如果文章中有错误或者您有什么好的建议，也欢迎您直接留言批评指教。" />
 
     <TextView
+        android:id="@+id/info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"

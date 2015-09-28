@@ -1,0 +1,8 @@
+package com.sven.xinyao.modles;
+
+public class YBMCellModel {
+	public int enroll_id;
+	public String create_time;
+	public int enroll_id;
+	public int enroll_id;
+}

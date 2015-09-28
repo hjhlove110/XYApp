@@ -1,0 +1,67 @@
+package com.sven.xinyao.ui;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+
+public class LoginView extends HttpSupportActivity {
+	@ViewInject(R.id.username)
+	private EditText username;
+
+	@ViewInject(R.id.password)
+	private EditText password;
+
+	private int requestCode = 1;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.login_view);
+		ViewUtils.inject(this);
+	}
+
+	@OnClick(R.id.btnBack)
+	@Override
+	public void back(View v) {
+		super.back(v);
+	}
+
+	@OnClick(R.id.reg)
+	public void Reg(View v) {
+		startActivityForResult(new Intent(getApplicationContext(),
+				RegView.class), requestCode);
+	}
+
+	@OnClick(R.id.btnLogin)
+	public void btnLogin(View v) {
+		RequestParams params = new RequestParams();
+		String phone = GetString(username);
+		String pwd = GetString(password);
+		if (phone.equals("")||pwd.equals("")) {
+			return;
+		}
+		params.addQueryStringParameter("phone", value);
+		params.addQueryStringParameter("password", value);
+	}
+
+	@OnClick(R.id.forget)
+	public void Forget(View v) {
+		TurnActivity(UpdataPasswordView.class, false);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if (this.requestCode == requestCode) {
+			if (data != null) {
+				username.setText(data.getStringExtra("username"));
+			}
+		}
+	}
+}

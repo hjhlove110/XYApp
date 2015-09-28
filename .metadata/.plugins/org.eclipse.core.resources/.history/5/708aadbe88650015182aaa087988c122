@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XYApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_tab1">Tab1</string>
+    <string name="title_activity_tab2">Tab2</string>
+    <string name="title_activity_tab3">Tab3</string>
+    <string name="title_activity_login_view">LoginView</string>
+    <string name="title_activity_reg_view">RegView</string>
+    <string name="title_activity_updata_password_view">UpdataPasswordView</string>
+    <string name="title_activity_instruction_view">InstructionView</string>
+    <string name="title_activity_join_xy_view">JoinXyView</string>
+    <string name="title_activity_joined_xy_view">JoinedXyView</string>
+    <string name="title_activity_patient_info_view">PatientInfoView</string>
+    <string name="title_activity_my_collection">MyCollection</string>
+    <string name="title_activity_my_footprint">MyFootprint</string>
+    <string name="title_activity_joined_detial_info">JoinedDetialInfo</string>
+    <string name="title_activity_serache_view">SeracheView</string>
+    <string name="title_activity_serache_for_result">SeracheForResult</string>
+
+</resources>

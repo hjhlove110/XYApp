@@ -40,7 +40,7 @@
             android:src="@drawable/top_bg" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btnGoYJ"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="15dp"

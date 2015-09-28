@@ -1,0 +1,53 @@
+package com.sven.xinyao.ui;
+
+import org.json.JSONObject;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+import com.sven.xinyao.modles.Comm;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+
+public class JoinXyView extends HttpSupportActivity {
+	@ViewInject(R.id.title)
+	private TextView title;
+
+	private Context context;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.join_xy_view);
+		ViewUtils.inject(this);
+		context = this;
+		initViews();
+		initViews();
+		setOnListener();
+	}
+
+	@Override
+	public void OnSuccess(JSONObject result, String httpRequestCode) {
+		super.OnSuccess(result, httpRequestCode);
+	}
+
+	private void setOnListener() {
+
+	}
+
+	private void initViews() {
+		title.setText("Ô¤±¨Ãû");
+
+	}
+
+	@OnClick(R.id.btnBack)
+	@Override
+	public void back(View v) {
+		super.back(v);
+	}
+}

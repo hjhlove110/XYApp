@@ -1,0 +1,96 @@
+package com.sven.xinyao.ui;
+
+import android.app.ActionBar.LayoutParams;
+import android.content.Context;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+
+public class YanJiuView extends HttpSupportActivity {
+	@ViewInject(R.id.listView)
+	private ListView listView;
+
+	@ViewInject(R.id.title)
+	private TextView title;
+
+	@ViewInject(R.id.spType)
+	private TextView spType;
+
+	@ViewInject(R.id.spSelect)
+	private TextView spSelect;
+
+	private PopupWindow popuLeft = null;
+	private PopupWindow popuRight = null;
+	private Context context;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.yan_jiu_view);
+		ViewUtils.inject(this);
+		context = this;
+		initViews();
+	}
+
+	@OnClick(R.id.btnBack)
+	@Override
+	public void back(View v) {
+		super.back(v);
+	}
+
+	private void initViews() {
+		listView.setAdapter(new YJAdapter());
+		title.setText("ÑÐ¾¿»ã×Ü");
+		
+		View popuViewLeft = View.inflate(context, R.layout.yj_cell, null);
+		popuLeft =  new PopupWindow(popuViewLeft,
+                LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, true);
+		popuLeft.setContentView(popuViewLeft);
+		spType.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				popuLeft.showAsDropDown(spType);
+			}
+		});
+		
+	}
+
+	class YJAdapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return 4;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			if (null == convertView) {
+				convertView = View.inflate(context, R.layout.yj_cell, null);
+			}
+			return convertView;
+		}
+	}
+}

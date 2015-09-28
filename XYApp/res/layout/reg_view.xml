@@ -26,6 +26,7 @@
                 android:layout_height="50dp"
                 android:layout_weight="1"
                 android:background="@null"
+                android:digits="0123456789"
                 android:hint="请输入手机号"
                 android:paddingLeft="10dp"
                 android:singleLine="true" >
@@ -78,7 +79,24 @@
             android:layout_height="50dp"
             android:layout_marginTop="1dip"
             android:background="@null"
-            android:hint="重新设置密码"
+            android:hint="设置密码(6-46位数字或字母，区分大小写)"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:singleLine="true" >
+        </EditText>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:background="#b2b2b2" />
+
+        <EditText
+            android:id="@+id/repassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="1dip"
+            android:background="@null"
+            android:hint="再次输入密码"
             android:inputType="textPassword"
             android:paddingLeft="10dp"
             android:singleLine="true" >

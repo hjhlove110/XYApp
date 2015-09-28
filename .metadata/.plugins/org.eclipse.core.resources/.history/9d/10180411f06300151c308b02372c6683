@@ -1,0 +1,13 @@
+package com.sven.xinyao.modles;
+
+public class Comm {
+	public final static String BastPath = "http://demo.jinriwangyan.com/open/";
+	public final static String RegPath = BastPath + "register/create";// 注册接口
+	public final static String LoginPath = BastPath + "login/index";// 登录接口
+	public final static String UpdataPath = BastPath + "";// 修改密码接口
+	public final static String GetPhoneCodePath = BastPath + "register/index";// 获取验证码接口
+	public final static String ValidatePhoneCodePath = BastPath
+			+ "register/check";// 验证验证码是否正确
+	public final static String InstrucyoonListPath = BastPath + "article/index";
+	public final static String SpName = "xydata";
+}

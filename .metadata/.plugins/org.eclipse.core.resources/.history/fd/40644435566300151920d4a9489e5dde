@@ -1,0 +1,143 @@
+package com.sven.xinyao.ui;
+
+import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v4.widget.SwipeRefreshLayout.OnRefreshListener;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+
+import com.google.gson.Gson;
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.sven.xinyao.modles.Comm;
+import com.sven.xinyao.modles.SMSCellModel;
+
+public class Tab2 extends HttpSupportActivity {
+	@ViewInject(R.id.listView)
+	private ListView listView;
+
+	@ViewInject(R.id.swipeLayout)
+	private SwipeRefreshLayout swipeLayout;
+
+	private Handler handler = new Handler(new Handler.Callback() {
+		@Override
+		public boolean handleMessage(Message msg) {
+			swipeLayout.setRefreshing(false);
+			ToastUtil("刷新完成");
+			return false;
+		}
+	});
+	private int page = 0;
+	private int order = 0;
+	private int lenght = 10;
+	private String httpResquestCode = "说明书首页请求";
+	private Context context;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.tab2);
+		context = this;
+		ViewUtils.inject(this);
+		setOnListener();
+		getDataFormNet();
+	}
+
+	private void getDataFormNet() {
+		RequestParams params = new RequestParams("utf-8");
+		params.addQueryStringParameter("page", String.valueOf(page));// page当前分页
+
+		params.addQueryStringParameter("lenght", String.valueOf(lenght));// lenght每页数量
+		params.addQueryStringParameter("order", String.valueOf(order));// order
+																		// 排序方式
+																		// 1.更新时间降序
+																		// 2.按照推荐，最近更新时间降序
+																		// 3.按照信息id降序
+																		// 4.按照信息浏览次数降序
+		HttpRequest(Comm.InstrucyoonListPath, params, new ProgressDialog(
+				context), httpResquestCode);
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+	}
+
+	@Override
+	public void OnSuccess(JSONObject result, String httpRequestCode) {
+		super.OnSuccess(result, httpRequestCode);
+		handler.sendEmptyMessage(0);
+		try {
+			JSONArray datas = result.getJSONObject("result").getJSONArray(
+					"list");
+			Gson gson = new Gson();
+			gson.fromJson(datas.toString(), SMSCellModel.class);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private void setOnListener() {
+		listView.setAdapter(new Tab2Adapter());
+		listView.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				startActivity(new Intent(context, InstructionView.class)
+						.putExtra("title", "1"));
+			}
+		});
+
+		swipeLayout.setOnRefreshListener(new OnRefreshListener() {
+			@Override
+			public void onRefresh() {
+				handler.sendEmptyMessageDelayed(0, 4000);
+			}
+		});
+	}
+
+	class Tab2Adapter extends BaseAdapter {
+
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return 5;
+		}
+
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
+
+		@Override
+		public View getView(int position, View convertView, ViewGroup parent) {
+			if (null == convertView) {
+				convertView = View.inflate(context, R.layout.tab2_cell, null);
+			}
+			return convertView;
+		}
+
+	}
+}

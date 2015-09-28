@@ -1,0 +1,42 @@
+package com.sven.xinyao.ui;
+
+import com.lidroid.xutils.ViewUtils;
+import com.lidroid.xutils.view.annotation.ViewInject;
+import com.lidroid.xutils.view.annotation.event.OnClick;
+
+import android.app.ActionBar.LayoutParams;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.View;
+import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ListView;
+
+public class SeracheView extends HttpSupportActivity {
+
+	@ViewInject(R.id.s_msg)
+	private EditText s_msg;
+	@ViewInject(R.id.listView)
+	private ListView listView;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.serache_view);
+		initViews();
+
+	}
+
+	private void initViews() {
+		WindowManager.LayoutParams lp = getWindow().getAttributes();
+		lp.width = LayoutParams.MATCH_PARENT;
+		lp.gravity = Gravity.TOP;
+		getWindow().setAttributes(lp);
+		ViewUtils.inject(this);
+	}
+
+	@OnClick(R.id.btnBack)
+	@Override
+	public void back(View v) {
+		super.back(v);
+	}
+}

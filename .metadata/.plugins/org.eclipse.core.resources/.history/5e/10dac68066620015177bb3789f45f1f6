@@ -1,0 +1,5 @@
+package com.sven.xinyao.modles;
+
+public class Comm {
+	public final static  String BastPath = "";
+}

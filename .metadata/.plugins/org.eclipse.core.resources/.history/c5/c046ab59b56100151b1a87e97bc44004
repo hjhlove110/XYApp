@@ -1,0 +1,27 @@
+package com.sven.xinyao.ui;
+
+import com.lidroid.xutils.ViewUtils;
+
+import android.app.ActionBar.LayoutParams;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.view.WindowManager;
+
+public class SeracheView extends HttpSupportActivity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.serache_view);
+		initViews();
+
+	}
+
+	private void initViews() {
+		WindowManager.LayoutParams lp = getWindow().getAttributes();
+		lp.width = LayoutParams.MATCH_PARENT;
+		lp.gravity = Gravity.TOP;
+		getWindow().setAttributes(lp);
+		ViewUtils.inject(this);
+	}
+}

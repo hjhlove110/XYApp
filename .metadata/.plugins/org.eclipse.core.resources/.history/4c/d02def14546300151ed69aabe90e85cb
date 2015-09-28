@@ -1,0 +1,8 @@
+package com.sven.xinyao.modles;
+
+import java.util.List;
+
+public class SMSRequestResultModel {
+	public List<SMSCellModel> list;
+	public int status;
+}
